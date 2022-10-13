@@ -1,0 +1,94 @@
+###################
+# HVS 5.1 #
+###################
+Saving calculated: 108.06
+Years calculated: 0.35
+Saving per Year: 310.61
+Amotisation: 16.1 Years
+Load Cycles calculated: 123.18
+Load Cycles until Amotisation: 5699.8
+###################
+
+
+###################
+# HVS 7.7 #
+###################
+Saving calculated: 122.29
+Years calculated: 0.35
+Saving per Year: 351.53
+Amotisation: 18.5 Years
+Load Cycles calculated: 92.51
+Load Cycles until Amotisation: 4917.2
+###################
+
+
+###################
+# HVS 10.2 #
+###################
+Saving calculated: 127.67
+Years calculated: 0.35
+Saving per Year: 366.99
+Amotisation: 24.5 Years
+Load Cycles calculated: 73.06
+Load Cycles until Amotisation: 5150.2
+###################
+
+
+###################
+# HVM 11.0 #
+###################
+Saving calculated: 126.66
+Years calculated: 0.35
+Saving per Year: 364.07
+Amotisation: 26.1 Years
+Load Cycles calculated: 68.55
+Load Cycles until Amotisation: 5141.7
+###################
+
+
+###################
+# HVM 13.8 #
+###################
+Saving calculated: 128.67
+Years calculated: 0.35
+Saving per Year: 369.86
+Amotisation: 29.7 Years
+Load Cycles calculated: 55.65
+Load Cycles until Amotisation: 4757.1
+###################
+
+
+###################
+# HVM 16.6 #
+###################
+Saving calculated: 130.33
+Years calculated: 0.35
+Saving per Year: 374.64
+Amotisation: 40.0 Years
+Load Cycles calculated: 46.97
+Load Cycles until Amotisation: 5405.8
+###################
+
+
+###################
+# HVM 19.3 #
+###################
+Saving calculated: 131.62
+Years calculated: 0.35
+Saving per Year: 378.34
+Amotisation: 47.6 Years
+Load Cycles calculated: 40.89
+Load Cycles until Amotisation: 5592.2
+###################
+
+
+###################
+# HVM 22.1 #
+###################
+Saving calculated: 132.94
+Years calculated: 0.35
+Saving per Year: 382.15
+Amotisation: 52.3 Years
+Load Cycles calculated: 36.15
+Load Cycles until Amotisation: 5439.0
+###################
