@@ -11,21 +11,71 @@ csvPv = '2022-10-06-11-39_pv_ac.csv'
 csvDemand = '2022-10-06-11-39_verbrauch.csv'
 
 # Specify Batteries
-batteryHVM11p0 = {'batteryName': 'HVM 11.0',
-                  'batteryCapacity': 11,
-                  'maxPowerStore': 4510,
-                  'maxPowerUse': 4510,
-                  'priceBattery': 10000,
-                  'batteryEfficiencyStore': 0.96,
-                  'batteryEfficiencyUse': 0.96}
 batteryHVS05p1 = {'batteryName': 'HVS 5.1',
                   'batteryCapacity': 5.1,
+                  'quotaUsable': 0.9,
                   'maxPowerStore': 4510,
                   'maxPowerUse': 4510,
                   'priceBattery': 5000,
                   'batteryEfficiencyStore': 0.97,
                   'batteryEfficiencyUse': 0.97}
-batteryList = [batteryHVM11p0, batteryHVS05p1]
+batteryHVS07p7 = {'batteryName': 'HVS 7.7',
+                  'batteryCapacity': 7.7,
+                  'quotaUsable': 0.9,
+                  'maxPowerStore': 6760,
+                  'maxPowerUse': 6760,
+                  'priceBattery': 6500,
+                  'batteryEfficiencyStore': 0.97,
+                  'batteryEfficiencyUse': 0.97}
+batteryHVS10p2 = {'batteryName': 'HVS 10.2',
+                  'batteryCapacity': 10.2,
+                  'quotaUsable': 0.9,
+                  'maxPowerStore': 9010,
+                  'maxPowerUse': 9010,
+                  'priceBattery': 9000,
+                  'batteryEfficiencyStore': 0.97,
+                  'batteryEfficiencyUse': 0.97}
+batteryHVM11p0 = {'batteryName': 'HVM 11.0',
+                  'batteryCapacity': 11,
+                  'quotaUsable': 0.9,
+                  'maxPowerStore': 4510,
+                  'maxPowerUse': 4510,
+                  'priceBattery': 9500,
+                  'batteryEfficiencyStore': 0.96,
+                  'batteryEfficiencyUse': 0.96}
+batteryHVM13p8 = {'batteryName': 'HVM 13.8',
+                  'batteryCapacity': 13.8,
+                  'quotaUsable': 0.9,
+                  'maxPowerStore': 5630,
+                  'maxPowerUse': 5630,
+                  'priceBattery': 11000,
+                  'batteryEfficiencyStore': 0.96,
+                  'batteryEfficiencyUse': 0.96}
+batteryHVM16p6 = {'batteryName': 'HVM 16.6',
+                  'batteryCapacity': 16.6,
+                  'quotaUsable': 0.9,
+                  'maxPowerStore': 6760,
+                  'maxPowerUse': 6760,
+                  'priceBattery': 15000,
+                  'batteryEfficiencyStore': 0.96,
+                  'batteryEfficiencyUse': 0.96}
+batteryHVM19p3 = {'batteryName': 'HVM 19.3',
+                  'batteryCapacity': 19.3,
+                  'quotaUsable': 0.9,
+                  'maxPowerStore': 7880,
+                  'maxPowerUse': 7880,
+                  'priceBattery': 18000,
+                  'batteryEfficiencyStore': 0.96,
+                  'batteryEfficiencyUse': 0.96}
+batteryHVM22p1 = {'batteryName': 'HVM 22.1',
+                  'batteryCapacity': 22.1,
+                  'quotaUsable': 0.9,
+                  'maxPowerStore': 9010,
+                  'maxPowerUse': 9010,
+                  'priceBattery': 20000,
+                  'batteryEfficiencyStore': 0.96,
+                  'batteryEfficiencyUse': 0.96}
+batteryList = [batteryHVS05p1, batteryHVS07p7, batteryHVS10p2, batteryHVM11p0, batteryHVM13p8, batteryHVM16p6, batteryHVM19p3, batteryHVM22p1]
 
 # Energy Cost and Refund
 costKwh = 0.28 # €/kWh
@@ -56,6 +106,7 @@ t = time.time()
 for battery in batteryList:
     batteryName = battery['batteryName']
     batteryCapacity = battery['batteryCapacity']
+    quotaUsable = battery['quotaUsable']
     maxPowerStore = battery['maxPowerStore']
     maxPowerUse = battery['maxPowerUse']
     priceBattery = battery['priceBattery']
@@ -63,7 +114,7 @@ for battery in batteryList:
     batteryEfficiencyUse = battery['batteryEfficiencyUse']
     
     # Specify and convert initial values
-    batteryCapacityWs = batteryCapacity * 3600000
+    batteryCapacityWs = quotaUsable * batteryCapacity * 3600000
     energyInBatteryWs = 0.5 * batteryCapacityWs
     energyFromNetTotalWs = 0
     energyToNetTotalWs = 0
@@ -173,8 +224,8 @@ for battery in batteryList:
     print('Years calculated: {:.2f}'.format(simulationDurationYears))
     print('Saving per Year: {:.2f}'.format(costSavingPerYear))
     print('Amotisation: {:.1f} Years'.format(amortisationYears))
-    print('Load Cycles calculated: {:.2f}'.format(((energyToBatteryTotalWs / 3600000)/batteryCapacity)))
-    print('Load Cycles until Amotisation: {:.1f}'.format(((energyToBatteryTotalWs / 3600000)/batteryCapacity)*(amortisationYears/simulationDurationYears)))
+    print('Load Cycles calculated: {:.2f}'.format(((energyToBatteryTotalWs / 3600000)/(quotaUsable * batteryCapacity))))
+    print('Load Cycles until Amotisation: {:.1f}'.format(((energyToBatteryTotalWs / 3600000)/(quotaUsable * batteryCapacity))*(amortisationYears/simulationDurationYears)))
     print('###################')
     
     if printSoc:
